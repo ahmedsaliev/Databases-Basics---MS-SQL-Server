@@ -1,0 +1,5 @@
+USE Minions
+
+DROP TABLE Minions
+DROP TABLE Users
+DROP TABLE Towns

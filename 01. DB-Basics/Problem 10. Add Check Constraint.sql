@@ -1,0 +1,26 @@
+USE Minions
+GO
+
+CREATE TABLE Users (
+	Id INT PRIMARY KEY IDENTITY,
+	UserName VARCHAR(50) NOT NULL,
+	[Password] VARCHAR(10) NOT NULL
+)
+GO
+
+ALTER TABLE Users
+DROP CONSTRAINT CheckPasswordLength
+GO
+
+TRUNCATE TABLE Users
+
+ALTER TABLE Users
+ADD CONSTRAINT CheckPasswordLength
+CHECK(LEN([Password]) >= 5)
+GO
+
+INSERT INTO Users(UserName, [Password]) VALUES
+('Ivan', 12345)
+GO
+
+SELECT * FROM Users
